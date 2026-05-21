@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shoe extends Model
+class Order extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Shoe extends Model
     | Table Name
     |--------------------------------------------------------------------------
     */
-    protected $table = 'shoes';
+    protected $table = 'orders';
 
     /*
     |--------------------------------------------------------------------------
@@ -22,11 +22,12 @@ class Shoe extends Model
     |--------------------------------------------------------------------------
     */
     protected $fillable = [
-        'name',
+        'customer_name',
+        'product_name',
+        'quantity',
         'price',
-        'stock',
-        'category',
-        'image'
+        'total',
+        'address'
     ];
 
     /*
@@ -35,7 +36,8 @@ class Shoe extends Model
     |--------------------------------------------------------------------------
     */
     protected $casts = [
+        'quantity' => 'integer',
         'price' => 'decimal:2',
-        'stock' => 'integer',
+        'total' => 'decimal:2',
     ];
 }
